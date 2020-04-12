@@ -1,21 +1,5 @@
 import pandas as pd
-import datetime as dt
 import praw
-from collections import Counter
-
-import re
-
-import nltk
-nltk.download('stopwords')
-from nltk.corpus import stopwords
-
-from sklearn.decomposition import LatentDirichletAllocation as LDA
-from sklearn.feature_extraction.text import TfidfVectorizer
-
-from sklearn.utils.extmath import randomized_svd
-from sklearn.cluster import KMeans
-
-from sklearn.metrics import silhouette_score
 
 class RecommendationAPI:
     def __init__(self):

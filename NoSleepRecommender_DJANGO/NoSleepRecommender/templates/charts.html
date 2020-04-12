@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>Recommendations | NoSleepRecommender</title>
+  <title>Charts | NoSleepRecommender</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -37,45 +37,7 @@
     </div>
   </div>
 </nav>
-<!-- First Container -->
-<div class="container-fluid bg-1 text-center">
-    <h2>RECOMMENDATIONS FOR "{{results}}"</h2>
-        {% for o in recommendations.itertuples %}
-        <div class="col-md-3">
-            <form id = "form_search_card_{{o.story_id}}" action="/results" method="post">
-                {% csrf_token %}
-                <input class="search_input" type="text" name="search_key" placeholder="Search..." value="{{o.title}}">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">{{o.title|upper|slice:":150"}}</h4>
-                    <p class="card-text">{{o.body|slice:":350"}}...</p>
-                  </div>
-                <div class="card-link"><a class="card-link-a" href="javascript:{}" onclick="document.getElementById('form_search_card_{{o.story_id}}').submit();">View Details</a></div>
-                </div>
-            </form>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="container-fluid bg-1">
-          <ul class="nav nav-pills nav-justified">
-            <li class="active"><a data-toggle="pill" href="#word_cloud">Word Cloud</a></li>
-            <li><a data-toggle="pill" href="#chart">Chart</a></li>
-            <li><a data-toggle="pill" href="#line">Table</a></li>
-          </ul>
 
-          <div class="tab-content">
-            <div id="word_cloud" class="tab-pane fade in active">
-                <!-- Create a div where the graph will take place -->
-                <div id="dataviz_word"></div>
-            </div>
-            <div id="chart" class="tab-pane fade">
-                <div id="dataviz_chart"></div>
-            </div>
-            <div id="line" class="tab-pane fade">
-                <div id="dataviz_line"></div>
-            </div>
-          </div>
-    </div>
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
   <p>TEAM 135 | DVA |  SPRING 2020</p>

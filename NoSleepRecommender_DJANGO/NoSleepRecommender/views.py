@@ -26,3 +26,8 @@ def results(request):
     args['results'] = text
     args['recommendations'] = stories
     return render(request, 'results.html', args)
+
+
+def charts(request):
+    args = {}
+    return render(request, 'charts.html', args)
