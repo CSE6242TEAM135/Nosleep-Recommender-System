@@ -21,9 +21,13 @@ body {
     background-color: #2f2f2f; /* Black Gray */
     color: #fff;
   }
+  .story-bg{
+    background-color: #ffffff; /* White */
+    color: black;
+  }
   .container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
   .navbar {
     padding-top: 15px;

@@ -1,5 +1,5 @@
 If you dont have django installed,
-python -m pip install Django
+pip3 install django 
 
 Then go inside the django project directory,
 

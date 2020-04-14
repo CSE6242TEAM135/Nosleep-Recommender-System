@@ -57,7 +57,7 @@
         <div class="col-md-3">
             <form id = "form_search_card_{{o.story_id}}" action="/results" method="post">
                 {% csrf_token %}
-                <input class="search_input" type="text" name="search_key" placeholder="Search..." value="{{o.title}}">
+                <input class="search_input" type="text" name="search_key" placeholder="Search..." value="{{o.story_id}}">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">{{o.title|upper|slice:":150"}}</h4>

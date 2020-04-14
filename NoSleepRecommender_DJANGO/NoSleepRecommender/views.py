@@ -6,25 +6,30 @@ def home(request):
     args = {}
     text = ""
     args['mytext'] = text
-    rd = RedditAPI()
-    stories = rd.get_stories()
+    #rd = RedditAPI()
+    #stories = rd.get_stories()
+    db = DynamoDBAPI()
     #print(stories)
-    args['recent_stories'] = stories
+    args['recent_stories'] = db.get_stories()
     return render(request, 'index.html', args)
 
 
 def results(request):
     args = {}
     text = ""
+    stories = {}
 
     db = DynamoDBAPI()
-    stories = db.get_stories()
-    print(stories)
+
     if request.method == 'POST':
         text = request.POST.get('search_key')
-        print(request.POST.get('search_key'))
+        stories = db.get_recommendations(text)
+        #print(stories)
+
     args['results'] = text
-    args['recommendations'] = stories
+    args['current_story'] = stories['current_story']
+    args['recommendations'] = stories['recommendations']
+    args['total_recommendations'] = len(stories['recommendations'])
     return render(request, 'results.html', args)
 
 
