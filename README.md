@@ -14,7 +14,7 @@ Aws components used
 •	Wordcloud <br/>
 •	Plotly <br/>
 
-### To install the software use this syntax : python3 -m  pip install --user plotly
+### To install any Python library use this syntax : python3 -m  pip install --user plotly
 In addition, AWS CLI must be installed and configured with appropriate Access keys , which will allow to communicate to DynamoDB
 
 ### To install the software, <br/> log into EC2 and run this command
