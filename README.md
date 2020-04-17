@@ -20,9 +20,9 @@ In addition, AWS CLI must be installed and configured with appropriate Access ke
 ### To install our software, <br/> 
 Log into EC2 and run these commands:<br/>
 • git clone https://github.com/CSE6242TEAM135/Nosleep-Recommender-System.git <br/>
-- This will pull all the required files.<br/>
+  This will pull all the required files.<br/>
 • Then type this command:<br/> python3 Nosleep-Recommender-System/NoSleepRecommender_DJANGO/manage.py runserver 0.0.0.0:8000 & <br/>
--  It will start the server. <br/>
+It will start the server. <br/>
 • Thereafter do <br/> ctrl+a+d<br/> This will continue running the server in the background and you can safely exit the CLI
 
 ## Structure of Git:
