@@ -31,8 +31,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
           <li><a href="/">HOME</a></li>
-          <li><a href="/charts">CHARTS</a></li>
-          <li><a href="#">CONTACT</a></li>
+          <li><a href="/contact">CONTACT</a></li>
       </ul>
     </div>
   </div>
@@ -51,13 +50,14 @@
       </div>
     </div>
     </form>
+    {% if no_results == False %}
     <div class="container-fluid">
         <h2>TOP STORIES</h2>
         {% for o in recent_stories.itertuples %}
         <div class="col-md-3">
             <form id = "form_search_card_{{o.story_id}}" action="/results" method="post">
                 {% csrf_token %}
-                <input class="search_input" type="text" name="search_key" placeholder="Search..." value="{{o.story_id}}">
+                <input class="card_search_input" type="text" name="search_key" placeholder="Search..." value="{{o.story_id}}">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">{{o.title|upper|slice:":150"}}</h4>
@@ -69,11 +69,17 @@
         </div>
         {% endfor %}
     </div>
+    {% else %}
+         <div class="container-fluid">
+            <h2>NO RESULTS FOUND FOR YOUR SEARCH</h2>
+             <a href="/">Search for a different story</a>
+        </div>
+    {% endif %}
 </div>
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
-  <p>TEAM 135 | DVA |  SPRING 2020</p>
+  <p>TEAM 212 | DVA |  SPRING 2020</p>
 </footer>
 
 </body>

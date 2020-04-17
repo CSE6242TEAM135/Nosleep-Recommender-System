@@ -33,7 +33,10 @@ def plotly_wordcloud(text):
     # get the relative occurence frequencies
     new_freq_list = []
     for i in freq_list:
-        new_freq_list.append(i * 100)
+        font_size = i * 100
+        if font_size < 1:
+            font_size = 10
+        new_freq_list.append(font_size)
     new_freq_list
 
     trace = go.Scatter(x=x,

@@ -1,7 +1,8 @@
 import boto3
 from boto3.dynamodb.conditions import Key
 import pandas as pd
-
+from sklearn.preprocessing import minmax_scale
+import math
 
 class DynamoDBAPI:
     def __init__(self):
@@ -74,24 +75,36 @@ class DynamoDBAPI:
 
         current_story = self.get_story_by_id(story_id)
 
+        if len(current_story) == 0:
+            return {"current_story": {}, "recommendations": {}}
+
         recommendations = eval(str(current_story["recommendations"]))
         scores = eval(str(current_story["recommendations_scores"]))
 
-        counter = 0
-        for item in recommendations:
-            item_story = self.get_story_by_id(item)
-            if 'title' in item_story and 'body' in item_story:
-                recommended_stories_dict["title"].append(item_story['title'])
-                recommended_stories_dict["body"].append(item_story['body'])
-                recommended_stories_dict["author"].append(item_story['author'])
-                recommended_stories_dict["story_id"].append(item_story['id'])
-                recommended_stories_dict["recommendations"].append(item_story['recommendations'])
-                recommended_stories_dict["score"].append(scores[counter])
-            counter += 1
+        ranking_list = recommendations
+        scores_list = scores
+        scores_num = [float(i) for i in scores_list]
+        scores_list_std = minmax_scale(scores_num)
+        ranked_list = {ranking_list[i]: {'score': scores_list_std[i]} for i in range(10)}
 
+        for i in ranked_list:
+            counter = 0
+            for item in recommendations:
+                if i == item:
+                    #print(i + " == " + item)
+                    item_story = self.get_story_by_id(item)
+                    if 'title' in item_story and 'body' in item_story:
+                        recommended_stories_dict["title"].append(item_story['title'])
+                        recommended_stories_dict["body"].append(item_story['body'])
+                        recommended_stories_dict["author"].append(item_story['author'])
+                        recommended_stories_dict["story_id"].append(item_story['id'])
+                        recommended_stories_dict["recommendations"].append(item_story['recommendations'])
+                        recommended_stories_dict["score"].append(scores[counter])
+                counter += 1
         recommendations = pd.DataFrame(recommended_stories_dict)
 
-        return {"current_story": current_story, "recommendations": recommendations}
+        return {"current_story": current_story, "recommendations": recommendations, "ranked_list": ranked_list}
+
 
     def get_story_by_id(self, story_id):
         result = {}

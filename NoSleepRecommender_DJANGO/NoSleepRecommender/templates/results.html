@@ -31,28 +31,38 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
           <li><a href="/">HOME</a></li>
-          <li><a href="/charts">CHARTS</a></li>
-          <li><a href="#">CONTACT</a></li>
+          <li><a href="/contact">CONTACT</a></li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="container-fluid bg-1 text-center">
-    <div class="container story-bg">
+    <div id="top" class="container story-bg">
         <h1>{{current_story.title}}</h1>
         <h3>Author: {{current_story.author}}</h3>
-        <p>{{current_story.body}}</p>
+        <a href="#wordcloud">WordCloud</a> | <a href="#network_graph">Network Graph</a> | <a href="#recommendations">Recommendations</a>
+        <div class="container-fluid">
+            <button id="hide" type="button" class="btn btn-primary">Hide Story</button>
+            <button id="show" type="button" class="btn btn-primary">Show Story</button>
+        </div>
+        <div id="story_body"><p>{{current_story.body}}</p></div>
     </div>
 </div>
-<!-- First Container -->
-<div class="container-fluid bg-1 text-center">
+<div id="wordcloud" class="container-fluid bg-1 text-center">
+    <h2>WordCloud</h2>
+    {{wordcloud | safe}}
+</div>
+<div id="network_graph" class="container-fluid bg-1 text-center">
+    <h2>Network Graph</h2>
+    {{networkGraph | safe}}
+</div>
+<div id="recommendations" class="container-fluid bg-1 text-center">
     <h2>RECOMMENDATIONS FOR STORY ID "{{results}}"</h2>
-    <h3>Total Recommendations: "{{total_recommendations}}"</h3>
     {% for o in recommendations.itertuples %}
     <div class="col-md-3">
         <form id = "form_search_card_{{o.story_id}}" action="/results" method="post">
             {% csrf_token %}
-            <input class="search_input" type="text" name="search_key" placeholder="Search..." value="{{o.story_id}}">
+            <input class="card_search_input" type="text" name="search_key" placeholder="Search..." value="{{o.story_id}}">
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">{{o.title|upper|slice:":150"}}</h4>
@@ -67,12 +77,11 @@
     {% endfor %}
 </div>
 <div class="container-fluid bg-1 text-center">
-    <h2>WordCloud</h2>
-{{wordcloud | safe}}
+ <a href="#top">Go Back to Top</a>
 </div>
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
-  <p>TEAM 135 | DVA |  SPRING 2020</p>
+  <p>TEAM 212 | DVA |  SPRING 2020</p>
 </footer>
 
 </body>

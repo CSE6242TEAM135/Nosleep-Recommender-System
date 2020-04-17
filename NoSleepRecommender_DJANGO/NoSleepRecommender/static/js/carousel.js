@@ -1,5 +1,16 @@
 $(document).ready(function() {
- console.log('here');
+    $("#show").hide();
+    $("#hide").click(function(){
+        console.log('hide');
+        $("#story_body").hide();
+        $("#hide").hide();
+        $("#show").show();
+    });
+    $("#show").click(function(){
+        $("#story_body").show();
+        $("#hide").show();
+        $("#show").hide();
+    });
   $("#myCarousel").on("slide.bs.carousel", function(e) {
    console.log('inside');
     var $e = $(e.relatedTarget);
