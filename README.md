@@ -1,6 +1,7 @@
-# Nosleep-Recommender-System : Reddit/nosleep Recommender System
+# Reddit/nosleep Recommender System
 
-## The application use web based and assumes AWS infrastructure. Aws components used
+## The application is web based and assumes AWS infrastructure. 
+Aws components used
 •	S3 <br/>
 •	DynamoDB<br/>
 •	EC 2 (Virtual Machine – RedHat)<br/>
