@@ -13,6 +13,7 @@ Aws components used
 •	NLTK <br/>
 •	Wordcloud <br/>
 •	Plotly <br/>
+•	Networkx <br/>
 
 ### To install any Python library use this syntax : python3 -m  pip install --user plotly
 In addition, AWS CLI must be installed and configured with appropriate Access keys , which will allow to communicate with DynamoDB
