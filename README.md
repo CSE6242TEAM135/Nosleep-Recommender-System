@@ -1,6 +1,6 @@
 
 # Reddit/nosleep Recommender System
-## Working softwre can be viewed at 
+## Working software can be viewed at 
  http://ec2-54-86-31-115.compute-1.amazonaws.com:8000/ <br/>
 ----------------------
 ### Important
