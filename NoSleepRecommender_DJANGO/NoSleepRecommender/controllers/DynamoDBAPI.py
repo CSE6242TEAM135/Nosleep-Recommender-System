@@ -71,6 +71,7 @@ class DynamoDBAPI:
                                     "author": [],
                                     "body": [],
                                     "recommendations": [],
+                                    "recommendations_scores" : [],
                                     "score": []}
 
         current_story = self.get_story_by_id(story_id)
@@ -99,6 +100,7 @@ class DynamoDBAPI:
                         recommended_stories_dict["author"].append(item_story['author'])
                         recommended_stories_dict["story_id"].append(item_story['id'])
                         recommended_stories_dict["recommendations"].append(item_story['recommendations'])
+                        recommended_stories_dict["recommendations_scores"].append(item_story['recommendations_scores'])
                         recommended_stories_dict["score"].append(scores[counter])
                 counter += 1
         recommendations = pd.DataFrame(recommended_stories_dict)

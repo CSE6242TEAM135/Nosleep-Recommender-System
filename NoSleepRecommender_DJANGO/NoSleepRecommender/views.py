@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from NoSleepRecommender.controllers.DynamoDBAPI import DynamoDBAPI
 from NoSleepRecommender.controllers.plotly_wordcloud import plotly_wordcloud
-from NoSleepRecommender.controllers.NetworkGraph import plotly_NetworkGraph, plotly_NetworkGraph1
+from NoSleepRecommender.controllers.NetworkGraph import plotly_NetworkGraph
 
 def home(request):
     args = {}
@@ -27,7 +27,7 @@ def results(request):
                 text += story
             args['wordcloud'] = plotly_wordcloud(text)
             #print(stories['ranked_list'])
-            args['networkGraph'] = plotly_NetworkGraph1(stories['ranked_list'])
+            args['networkGraph'] = plotly_NetworkGraph(stories)
 
     if args['total_recommendations'] == 0:
         args['no_results'] = True
