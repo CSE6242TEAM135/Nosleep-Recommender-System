@@ -40,7 +40,7 @@
     <div id="top" class="container story-bg">
         <h1>{{current_story.title}}</h1>
         <h3>Author: {{current_story.author}}</h3>
-        <a href="#wordcloud">WordCloud</a> | <a href="#network_graph">Network Graph</a> | <a href="#recommendations">Recommendations</a>
+        <a href="#wordcloud">WordCloud</a> | <a href="#recommendations">Recommendations</a> | <a href="#network_graph">Network Graph</a>
         <div class="container-fluid">
             <button id="hide" type="button" class="btn btn-primary">Hide Story</button>
             <button id="show" type="button" class="btn btn-primary">Show Story</button>
@@ -51,10 +51,6 @@
 <div id="wordcloud" class="container-fluid bg-1 text-center">
     <h2>WordCloud</h2>
     {{wordcloud | safe}}
-</div>
-<div id="network_graph" class="container-fluid bg-1 text-center">
-    <h2>Network Graph</h2>
-    {{networkGraph | safe}}
 </div>
 <div id="recommendations" class="container-fluid bg-1 text-center">
     <h2>RECOMMENDATIONS FOR STORY ID "{{results}}"</h2>
@@ -68,13 +64,17 @@
                 <h4 class="card-title">{{o.title|upper|slice:":150"}}</h4>
                   <p class="card-text">Story ID: {{o.story_id}}</p>
                   <p class="card-text">Score: {{o.score}}</p>
-                <p class="card-text">{{o.body|slice:":350"}}...</p>
+                <p class="card-text">{{o.body|slice:":300"}}...</p>
               </div>
             <div class="card-link"><a class="card-link-a" href="javascript:{}" onclick="document.getElementById('form_search_card_{{o.story_id}}').submit();">View Details</a></div>
             </div>
         </form>
     </div>
     {% endfor %}
+</div>
+<div id="network_graph" class="container-fluid bg-1 text-center">
+    <h2>Network Graph</h2>
+    {{networkGraph | safe}}
 </div>
 <div class="container-fluid bg-1 text-center">
  <a href="#top">Go Back to Top</a>

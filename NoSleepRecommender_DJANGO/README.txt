@@ -1,10 +1,10 @@
 If you dont have django installed,
-pip3 install django 
+pip install django
 
 Then go inside the django project directory,
 
 Installing dependencies,
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 
 To run,
 python manage.py runserver

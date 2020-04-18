@@ -116,13 +116,12 @@ def plotly_NetworkGraph(stories):
 
     fig = go.Figure(data=trace_list,
                     layout=go.Layout(
-                        title='<br>Network Graph Recommended Stories',
+                        title='<br>Network Graph for Recommended Stories',
                         titlefont_size=16,
                         showlegend=False,
                         hovermode='closest',
                         margin=dict(b=20, l=5, r=5, t=40),
                         annotations=[dict(
-
                             showarrow=False,
                             xref="paper", yref="paper",
                             x=0.005, y=-0.002)],
