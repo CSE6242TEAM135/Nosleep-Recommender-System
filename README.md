@@ -40,5 +40,5 @@ It will start the server. <br/>
 ## Structure of Git:
 <b>Model</b> folder contains our machine learning models, which includes Topic Modeling and scoring methodology <br/>
 <b>NoSleepRecommender_DJANGO</b> folder contains Django web server, Wordcloud  and Network graph files <br/>
-<b> storyids.txt </b> contains list of complete story ids that can be fetched from AWs.
+<b> storyids.txt </b> contains list of complete story ids that can be fetched from AWS.
 
