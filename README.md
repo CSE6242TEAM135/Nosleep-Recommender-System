@@ -1,5 +1,16 @@
-# Reddit/nosleep Recommender System
 
+# Reddit/nosleep Recommender System
+## Working softwre can be viewed at 
+ http://ec2-54-86-31-115.compute-1.amazonaws.com:8000/ <br/>
+----------------------
+### Important
+To run a search you would need story IDs. We have huge dataset of story IDs ran between 01/01/2019 and 07/01/2019 (Six months) <br/>
+However, you would need story IDs to do the search. We are providing some story IDs, which you can use to test
+
+PS: Complete list of story IDs can be found in storyids.txt
+
+
+--------------------------------------------
 ## The application is web based and assumes AWS infrastructure. 
 Aws components used
 •	S3 <br/>
@@ -27,6 +38,7 @@ It will start the server. <br/>
 • Thereafter do <br/> ctrl+a+d<br/> This will continue running the server in the background and you can safely exit the CLI
 
 ## Structure of Git:
-<b>Model</b> folder contains our machine learning models, which includes Topic Modeling and scoring methodology
-<b>NoSleepRecommender_DJANGO</b> folder contains Django web server, Wordcloud  and Network graph files
+<b>Model</b> folder contains our machine learning models, which includes Topic Modeling and scoring methodology <br/>
+<b>NoSleepRecommender_DJANGO</b> folder contains Django web server, Wordcloud  and Network graph files <br/>
+<b> storyids.txt </b> contains list of complete story ids that can be fetched from AWs.
 
