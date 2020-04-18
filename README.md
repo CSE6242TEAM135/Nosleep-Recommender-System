@@ -4,7 +4,7 @@
  http://ec2-54-86-31-115.compute-1.amazonaws.com:8000/ <br/>
 ----------------------
 ### Important
-To run a search you would need story IDs. We have huge dataset of story IDs ran between 01/01/2019 and 07/01/2019 (Six months) <br/>
+To run a search you would need story IDs. The rationale is that if we need to hook this up with Reddit, the parameter passed to our system will be a story ID, which is unique. We have huge dataset of story IDs ran between 01/01/2019 and 07/01/2019 (Six months) <br/>
 We are providing some story IDs, which you can use to test:<br/>
 abg1pv , abg4dj, abg8cw, abgcly,  abgd7w, abgfyo, abgjjn, abgyue, abgzs9, abhcls, abhgjs <br/>
 
