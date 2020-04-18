@@ -5,7 +5,7 @@
 ----------------------
 ### Important
 To run a search you would need story IDs. We have huge dataset of story IDs ran between 01/01/2019 and 07/01/2019 (Six months) <br/>
-However, you would need story IDs to do the search. We are providing some story IDs, which you can use to test
+We are providing some story IDs, which you can use to test
 
 PS: Complete list of story IDs can be found in storyids.txt
 
