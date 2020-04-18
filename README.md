@@ -40,7 +40,7 @@ It will start the server. <br/>
 • Thereafter do <br/> ctrl+a+d<br/> This will continue running the server in the background and you can safely exit the CLI
 
 ## Structure of Git:
-<b>Model</b> folder contains our machine learning models, which includes Topic Modeling and scoring methodology <br/>
+<b>Model</b> folder contains our machine learning models, which includes Topic Modeling, Sentiment Analysis (using NLTK and Vader) and scoring methodology <br/>
 <b>NoSleepRecommender_DJANGO</b> folder contains Django web server, Wordcloud  and Network graph files <br/>
 <b> storyids.txt </b> contains list of complete story ids that can be fetched from AWS.
 
